@@ -9,7 +9,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardBackgroundColor="#fff9c4">
+    app:cardBackgroundColor="#fffde7">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
