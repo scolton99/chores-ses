@@ -28,11 +28,11 @@ import static c1.ses.chores.R.*;
  * @author Spencer Colton
  */
 public class MainParentActivity extends AppCompatActivity
-        implements FirebaseDataListener<ArrayList<Kid>>, ChildAdapter.KidClickedListener {
+        implements FirebaseDataListener<List<Kid>>, ChildAdapter.KidClickedListener {
     private TextView parentWelcome;
     private RecyclerView childList;
     private FirebaseAuth mAuth;
-    private ArrayList<Kid> children;
+    private List<Kid> children;
 
     private static final int LOGIN_RC = 237;
 
