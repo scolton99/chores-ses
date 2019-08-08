@@ -24,8 +24,7 @@ public class MainParentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layout.parents_main);
 
-<<<<<<< HEAD
-        parentWelcome = findViewById(R.id.parentWelcome);
+        parentWelcome = findViewById(id.parent);
         parentSubtitle = findViewById(R.id.parentSubtitle);
         childList = findViewById(R.id.childList);
 
@@ -38,12 +37,6 @@ public class MainParentActivity extends AppCompatActivity {
 
         childList.setLayoutManager(new LinearLayoutManager(this));
         childList.setAdapter(adapter);
-
-=======
-        parentWelcome = findViewById(id.childName);
-        parentSubtitle = findViewById(id.parentSubtitle);
-        childList = findViewById(id.childList);
->>>>>>> 0deace12870df58e67d1bd7145d36bbb2421aa44
 
     }
 }
