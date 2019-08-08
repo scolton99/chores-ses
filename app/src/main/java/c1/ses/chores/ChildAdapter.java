@@ -1,5 +1,6 @@
 package c1.ses.chores;
 
+import android.renderscript.Script;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import java.util.List;
 
 public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
 
-    private List<String> children;
+    private List<Kid> children;
 
-    public ChildAdapter(List<String> children) {
-        children.add("");
-        //this.children = children;
+    public ChildAdapter(List<Kid> children) {
+        this.children = children;
     }
 
     /**
@@ -36,9 +37,9 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
      */
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        String currentTransaction = children.get(position);
-        holder.childName.setText("Rich Fairbank");
-        holder.accountsTotal.setText("$" + "24.74");
+        Kid currentKid = children.get(position);
+        holder.childName.setText(currentKid.getName());
+        holder.accountsTotal.setText("$" + currentKid.getAccountsTotal());
     }
 
     /**
@@ -51,7 +52,6 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
 
     /**
      * Holds the UI widgets which will comprise a single row in the list (to render
-     * a {@link Children}).
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
 

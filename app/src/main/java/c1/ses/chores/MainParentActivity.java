@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static c1.ses.chores.R.*;
@@ -23,15 +24,19 @@ public class MainParentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layout.parents_main);
 
-        parentWelcome = findViewById(id.parentWelcome);
-        parentSubtitle = findViewById(id.parentSubtitle);
-        childList = findViewById(id.childList);
+        parentWelcome = findViewById(R.id.parentWelcome);
+        parentSubtitle = findViewById(R.id.parentSubtitle);
+        childList = findViewById(R.id.childList);
 
         Intent intent = getIntent();
-        ArrayList<String> children = (ArrayList<String>) intent.getSerializableExtra("children");
+        ArrayList<Kid> children = new ArrayList<>();
+        children.add(new Kid("Rich Fairbank", 234.23, 34.36));
 
         ChildAdapter adapter = new ChildAdapter(children);
+
         childList.setLayoutManager(new LinearLayoutManager(this));
         childList.setAdapter(adapter);
+
+
     }
 }

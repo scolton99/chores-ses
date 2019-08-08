@@ -1,3 +1,4 @@
+package c1.ses.chores;
 /* Megan St. Hilaire
    Capital One SES Hackathon --> DUCKLING$
    This file represents a single child under a parent account.
@@ -27,6 +28,14 @@ public class Kid {
 		accounts.put("checking", startCheckBal);
 		// Savings is money put towards a goal.
 		accounts.put("savings", 0.0);
+	}
+	/*
+		Constructor to test appearance of tiles on main parent page
+	 */
+	public Kid(String name, Double check, Double save){
+		this.name = name;
+		accounts.put("Checking", check);
+		accounts.put("Savings", save);
 	}
 
 	public String getName(){
