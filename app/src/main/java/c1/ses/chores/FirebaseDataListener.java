@@ -1,6 +1,6 @@
 package c1.ses.chores;
 
-public interface FirebaseDataListener<T> {
+interface FirebaseDataListener<T> {
     /**
      * Called when a Firebase request is completed and the data have been formatted appropriately.
      *

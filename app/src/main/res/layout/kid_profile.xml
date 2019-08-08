@@ -6,19 +6,8 @@
     android:layout_height="match_parent"
     android:background="#e3f2fd">
 
-    <Button
-        android:id="@+id/button4"
-        style="@style/FirebaseUI.Button.AccountChooser.PhoneButton"
-        android:layout_width="276dp"
-        android:layout_height="54dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Accounts"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="209dp" />
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/childTile"
+        android:id="@+id/childTile1"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="8dp"
@@ -31,13 +20,14 @@
         tools:layout_editor_absoluteX="8dp">
 
         <ImageView
-            android:id="@+id/icon4"
+            android:id="@+id/star1"
             android:layout_width="59dp"
             android:layout_height="65dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:contentDescription="@string/account_icon_desc"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +37,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/childTile"
+        android:id="@+id/childTile2"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="8dp"
@@ -63,7 +53,7 @@
         tools:layout_editor_absoluteX="8dp">
 
         <ImageView
-            android:id="@+id/icon4"
+            android:id="@+id/star2"
             android:layout_width="59dp"
             android:layout_height="65dp"
             android:layout_marginStart="16dp"
@@ -74,7 +64,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_goneMarginStart="16dp"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            android:contentDescription="@string/account_icon_desc" />
 
     </androidx.cardview.widget.CardView>
 
@@ -121,11 +112,14 @@
         style="@style/FirebaseUI.Button.AccountChooser.PhoneButton"
         android:layout_width="276dp"
         android:layout_height="54dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginLeft="90dp"
         android:fontFamily="sans-serif-black"
-        android:text="Accounts"
+        android:text="@string/checking_button_text"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="209dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/childTile1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/childTile1" />
 
 
 

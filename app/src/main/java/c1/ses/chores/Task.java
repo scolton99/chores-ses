@@ -8,7 +8,7 @@ import java.util.Date;
  * @author Megan St. Hilaire
  * @author Spencer Colton
  */
-public class Task {
+class Task {
     private String assignee_id;
     private String name;
     private String description;

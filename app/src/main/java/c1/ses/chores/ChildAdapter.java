@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -21,9 +20,11 @@ import java.util.List;
  */
 public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
     private final List<Kid> children;
+    private final KidClickedListener mkidClickedListener;
 
-    public ChildAdapter(List<Kid> children) {
+    public ChildAdapter(List<Kid> children, KidClickedListener mkidClickedListener) {
         this.children = children;
+        this.mkidClickedListener = mkidClickedListener;
     }
 
     /**
@@ -33,7 +34,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.preview_child_tile, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, this.mkidClickedListener);
     }
 
     /**
@@ -59,18 +60,33 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
     /**
      * Holds the UI widgets which will comprise a single row in the list (to render
      */
-    static class ViewHolder extends RecyclerView.ViewHolder {
-
-        // final CardView childList;
+    static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        // CardView childList;
         final TextView childName;
         final TextView accountsTotal;
+        final KidClickedListener kidClickedListener;
 
-        ViewHolder(View rootView) {
+        ViewHolder(View rootView, KidClickedListener kidClickedListener) {
             super(rootView);
             // childList = rootView.findViewById(R.id.childList);
             childName = rootView.findViewById(R.id.parentWelcome);
             accountsTotal = rootView.findViewById(R.id.accountsTotal);
+            this.kidClickedListener = kidClickedListener;
+
+            rootView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view){
+            kidClickedListener.onKidClicked(getAdapterPosition());
+        }
+    }
+
+    /**
+     * Will receive callbacks whenever a kid in the list is clicked.
+     */
+    public interface KidClickedListener {
+        void onKidClicked(int pos);
     }
 }
 

@@ -26,10 +26,12 @@ import static c1.ses.chores.R.*;
  * @author Jennifer Carballo
  * @author Spencer Colton
  */
-public class MainParentActivity extends AppCompatActivity implements FirebaseDataListener<List<Kid>> {
+public class MainParentActivity extends AppCompatActivity
+        implements FirebaseDataListener<List<Kid>>, ChildAdapter.KidClickedListener {
     private TextView parentWelcome;
     private RecyclerView childList;
     private FirebaseAuth mAuth;
+    private List<Kid> children;
 
     private static final int LOGIN_RC = 237;
 
@@ -63,7 +65,7 @@ public class MainParentActivity extends AppCompatActivity implements FirebaseDat
     /**
      * Updates the text and list on screen once Firebase data loads.
      */
-    public void updateUI() {
+    private void updateUI() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -90,6 +92,24 @@ public class MainParentActivity extends AppCompatActivity implements FirebaseDat
 
     @Override
     public void onData(List<Kid> kids) {
-        childList.setAdapter(new ChildAdapter(kids));
+        this.children = kids;
+        childList.setAdapter(new ChildAdapter(kids, this));
+    }
+
+    /**
+     * Called when the user clicks on any of the kid in the list. From here, you could
+     * open up a new screen to further show kid details.
+     */
+    @Override
+    public void onKidClicked(int pos) {
+        // Toast.makeText(MainParentActivity.this, "Login Success!", Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(MainParentActivity.this, MainKidProfile.class);
+
+        // intent.putExtra("name", children.get(pos).getName());
+        // intent.putExtra("checking", children.get(pos).getChecking());
+        intent.putExtra("savings", children.get(pos).getSavings());
+
+        startActivity(intent);
     }
 }

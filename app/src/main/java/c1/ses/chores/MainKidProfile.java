@@ -1,11 +1,10 @@
 package c1.ses.chores;
 
 import android.os.Bundle;
-import android.widget.ImageButton;
-import android.widget.TextView;
+// import android.widget.ImageButton;
+// import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import static c1.ses.chores.R.*;
 

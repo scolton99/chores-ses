@@ -22,7 +22,7 @@ import java.util.Map;
  * @author Megan St. Hilaire
  * @author Spencer Colton
  */
-public class Kid {
+class Kid {
 	private String name;
 	private String parent_id;
 	private Map<String, Object> goal = new HashMap<>();
@@ -100,7 +100,7 @@ public class Kid {
 	 * @param parent_id The ID of the parent
 	 * @param listener The object to call back when the data arrives
 	 */
-	public static void getKidsByParent(FirebaseFirestore db, String parent_id, final FirebaseDataListener<List<Kid>> listener) {
+	static void getKidsByParent(FirebaseFirestore db, String parent_id, final FirebaseDataListener<List<Kid>> listener) {
 		CollectionReference cr = db.collection("kids");
 		Query query = cr.whereEqualTo("parent_id", parent_id);
 
@@ -123,13 +123,28 @@ public class Kid {
 	/**
 	 * @return The total value of all the Kid's accounts.
 	 */
-	public String getAccountsTotal(){
+	String getAccountsTotal(){
 		DecimalFormat df = new DecimalFormat("#.##");
 		Double sum = 0.0;
 		for (Map.Entry<String, Double> curr : accounts.entrySet()) {
 			sum += curr.getValue();
 		}
 		return df.format(sum);
+	}
+
+	/**
+	 * @return The value of the Kid's checking account
+	 */
+	@SuppressWarnings("unused")
+	Double getChecking(){
+		return accounts.get("Checking");
+	}
+
+	/**
+	 * @return The value of the Kid's savings account
+	 */
+	Double getSavings(){
+		return accounts.get("Savings");
 	}
 
 	@Override
