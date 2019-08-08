@@ -2,12 +2,9 @@
    Capital One SES Hackathon --> DUCKLING$
    This file represents a single child under a parent account.
 */
-
-<<<<<<< HEAD
-import java.text.DecimalFormat;
-=======
 package c1.ses.chores;
->>>>>>> 8f167a59814ab98b77304834ebb45d2b41576ea6
+
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 

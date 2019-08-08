@@ -1,5 +1,9 @@
 package c1.ses.chores;
-
+/**
+ * Jennifer Carballo
+ * 8.8.2019
+ * Creates the page the parent user sees when first "logging into the app"
+ */
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;

@@ -1,4 +1,9 @@
 package c1.ses.chores;
+/**
+ * Jennifer Carballo
+ * 8.8.2019
+ * Handles the child preview tiles for the main parent page
+ */
 
 import android.view.LayoutInflater;
 import android.view.View;
