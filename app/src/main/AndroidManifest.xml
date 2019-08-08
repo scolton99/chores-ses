@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainParentActivity">
-        </activity>
+        <!--<activity android:name=".MainParentActivity">-->
+        <!--</activity>-->
 
-        <activity android:name=".TestSignInActivity">
+        <activity android:name=".MainParentActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

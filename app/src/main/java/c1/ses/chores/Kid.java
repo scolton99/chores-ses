@@ -52,6 +52,14 @@ public class Kid {
 		return df.format(sum);
 	}
 
+	public Double getChecking(){
+		return accounts.get("Checking");
+	}
+
+	public Double getSavings(){
+		return accounts.get("Savings");
+	}
+
 	public void setGoal(String gName, Double amount) {
 		goal.put(gName, amount);
 	}
