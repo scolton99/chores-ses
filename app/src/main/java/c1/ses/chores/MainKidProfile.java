@@ -12,7 +12,6 @@ import static c1.ses.chores.R.*;
 public class MainKidProfile extends AppCompatActivity {
     // private ImageButton childIcon;
     // private TextView childName;
-    // private RecyclerView childTiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,7 +20,5 @@ public class MainKidProfile extends AppCompatActivity {
 
         // childIcon = findViewById(id.childIcon);
         // childName = findViewById(id.parentWelcome);
-        // childTiles = findViewById(id.childTiles);
-
     }
 }
