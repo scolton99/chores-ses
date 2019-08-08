@@ -1,3 +1,5 @@
+package c1.ses.chores;
+
 import java.util.Date;
 
 /* Megan St. Hilaire
