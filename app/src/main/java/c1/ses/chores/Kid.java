@@ -1,9 +1,9 @@
-package c1.ses.chores;
 /* Megan St. Hilaire
    Capital One SES Hackathon --> DUCKLING$
    This file represents a single child under a parent account.
 */
 
+package c1.ses.chores;
 import java.util.HashMap;
 import java.util.Map;
 
