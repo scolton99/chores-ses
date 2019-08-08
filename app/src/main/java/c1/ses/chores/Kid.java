@@ -1,3 +1,8 @@
+/* Megan St. Hilaire
+   Capital One SES Hackathon --> DUCKLING$
+   This file represents a single child under a parent account.
+*/
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +26,10 @@ public class Kid {
 		accounts.put("checking", startCheckBal);
 		// Savings is money put towards a goal.
 		accounts.put("savings", 0.0);
+	}
+
+	public setGoal(String gName, Double amount) {
+		goal.put(gName, amount);
 	}
 
 
