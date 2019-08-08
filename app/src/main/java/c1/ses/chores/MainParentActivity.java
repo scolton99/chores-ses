@@ -31,6 +31,7 @@ public class MainParentActivity extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList<Kid> children = new ArrayList<>();
         children.add(new Kid("Rich Fairbank", 234.23, 34.36));
+        children.add(new Kid("Dana Fairbank", 2.23, 344.36));
 
         ChildAdapter adapter = new ChildAdapter(children);
 

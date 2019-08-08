@@ -5,7 +5,6 @@ package c1.ses.chores;
 */
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Kid {
@@ -29,6 +28,7 @@ public class Kid {
 		// Savings is money put towards a goal.
 		accounts.put("savings", 0.0);
 	}
+
 	/*
 		Constructor to test appearance of tiles on main parent page
 	 */
