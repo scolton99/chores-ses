@@ -6,6 +6,78 @@
     android:layout_height="match_parent"
     android:background="#e3f2fd">
 
+    <Button
+        android:id="@+id/button4"
+        style="@style/FirebaseUI.Button.AccountChooser.PhoneButton"
+        android:layout_width="276dp"
+        android:layout_height="54dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Accounts"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="209dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/childTile"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+        android:layout_marginTop="36dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#fff9c4"
+        app:layout_constraintTop_toBottomOf="@+id/parentWelcome"
+        tools:layout_editor_absoluteX="8dp">
+
+        <ImageView
+            android:id="@+id/icon4"
+            android:layout_width="59dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginStart="16dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/childTile"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#fff9c4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/parentWelcome"
+        app:layout_constraintVertical_bias="0.299"
+        tools:layout_editor_absoluteX="8dp">
+
+        <ImageView
+            android:id="@+id/icon4"
+            android:layout_width="59dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginStart="16dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    </androidx.cardview.widget.CardView>
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"
@@ -43,18 +115,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/childTiles"
-        android:layout_width="395dp"
-        android:layout_height="399dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/button2"
+        style="@style/FirebaseUI.Button.AccountChooser.PhoneButton"
+        android:layout_width="276dp"
+        android:layout_height="54dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Accounts"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="209dp" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
