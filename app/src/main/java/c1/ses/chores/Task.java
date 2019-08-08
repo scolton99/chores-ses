@@ -3,6 +3,8 @@
    This file represents a single task assigned to a child by a parent.
 */
 
+package c1.ses.chores;
+
 import java.util.Date;
 
 public class Task {
