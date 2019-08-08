@@ -2,13 +2,13 @@ package c1.ses.chores;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static c1.ses.chores.R.*;
@@ -24,7 +24,6 @@ public class MainParentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layout.parents_main);
 
-<<<<<<< HEAD
         parentWelcome = findViewById(R.id.parentWelcome);
         parentSubtitle = findViewById(R.id.parentSubtitle);
         childList = findViewById(R.id.childList);
@@ -39,11 +38,9 @@ public class MainParentActivity extends AppCompatActivity {
         childList.setLayoutManager(new LinearLayoutManager(this));
         childList.setAdapter(adapter);
 
-=======
-        parentWelcome = findViewById(id.childName);
+        parentWelcome = findViewById(id.parentWelcome);
         parentSubtitle = findViewById(id.parentSubtitle);
         childList = findViewById(id.childList);
->>>>>>> 0deace12870df58e67d1bd7145d36bbb2421aa44
 
     }
 }

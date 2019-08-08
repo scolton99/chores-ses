@@ -21,7 +21,7 @@ public class MainKidProfile extends AppCompatActivity {
         setContentView(layout.kid_profile);
 
         childIcon = findViewById(id.childIcon);
-        childName = findViewById(id.childName);
+        childName = findViewById(id.parentWelcome);
         childTiles = findViewById(id.childTiles);
 
     }

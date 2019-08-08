@@ -1,6 +1,5 @@
 package c1.ses.chores;
 
-import android.renderscript.Script;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +61,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
         ViewHolder(View rootView) {
             super(rootView);
             childList = rootView.findViewById(R.id.childList);
-            childName = rootView.findViewById(R.id.childName);
+            childName = rootView.findViewById(R.id.parentWelcome);
             accountsTotal = rootView.findViewById(R.id.accountsTotal);
         }
     }

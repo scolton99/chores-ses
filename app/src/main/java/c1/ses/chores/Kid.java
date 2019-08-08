@@ -4,6 +4,7 @@ package c1.ses.chores;
    This file represents a single child under a parent account.
 */
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,12 +43,13 @@ public class Kid {
 		return name;
 	}
 
-	public Double getAccountsTotal(){
+	public String getAccountsTotal(){
+		DecimalFormat df = new DecimalFormat("#.##");
 		Double sum = 0.0;
 		for (Map.Entry<String, Double> curr : accounts.entrySet()) {
 			sum += curr.getValue();
 		}
-		return sum;
+		return df.format(sum);
 	}
 
 	public void setGoal(String gName, Double amount) {
