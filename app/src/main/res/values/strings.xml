@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Chores</string>
+    <string name="parent_avatar_desc">Parent Avatar</string>
+    <string name="parent_title">Welcome, %1$s</string>
+    <string name="parent_subtitle">Let\'s see how the kids are doing</string>
+    <string name="child_avatar_desc">Star</string>
 </resources>

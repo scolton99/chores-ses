@@ -1,9 +1,4 @@
 package c1.ses.chores;
-/**
- * Jennifer Carballo
- * 8.8.2019
- * Handles the child preview tiles for the main parent page
- */
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import java.util.List;
 
+/**
+ * Jennifer Carballo
+ * 8.8.2019
+ * Handles the child preview tiles for the main parent page
+ *
+ * @author Jennifer Carballo
+ * @author Spencer Colton
+ */
 public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
-
-    private List<Kid> children;
+    private final List<Kid> children;
 
     public ChildAdapter(List<Kid> children) {
         this.children = children;
@@ -43,6 +44,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Kid currentKid = children.get(position);
         holder.childName.setText(currentKid.getName());
+
         holder.accountsTotal.setText("$" + currentKid.getAccountsTotal());
     }
 
@@ -59,13 +61,13 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder>{
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        CardView childList;
-        TextView childName;
-        TextView accountsTotal;
+        // final CardView childList;
+        final TextView childName;
+        final TextView accountsTotal;
 
         ViewHolder(View rootView) {
             super(rootView);
-            childList = rootView.findViewById(R.id.childList);
+            // childList = rootView.findViewById(R.id.childList);
             childName = rootView.findViewById(R.id.parentWelcome);
             accountsTotal = rootView.findViewById(R.id.accountsTotal);
         }

@@ -18,8 +18,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TestSignInActivity">
-        </activity>
+        <activity android:name=".MainKidProfile" />
 
         <meta-data
             android:name="preloaded_fonts"

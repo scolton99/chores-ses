@@ -27,7 +27,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_goneMarginStart="16dp"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            android:contentDescription="@string/child_avatar_desc" />
 
         <TextView
             android:id="@+id/parentWelcome"

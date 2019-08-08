@@ -1,14 +1,9 @@
-/* Megan St. Hilaire
-   Capital One SES Hackathon --> DUCKLING$
-   This file represents a single child under a parent account.
-*/
 package c1.ses.chores;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -21,31 +16,90 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Represents a single child under a parent's account.
+ *
+ * @author Megan St. Hilaire
+ * @author Spencer Colton
+ */
 public class Kid {
-
-	// Child name
 	private String name;
-	// ID of parent to link
 	private String parent_id;
-	// A goal (item, experience, etc.) that child is working for
 	private Map<String, Object> goal = new HashMap<>();
-	// Checking/savings account balances
 	private Map<String, Double> accounts = new HashMap<>();
 
-	// Required by Firebase
+	/**
+	 * Blank constructor is required for Firebase to utilize this class directly.
+	 */
+	@SuppressWarnings("unused")
 	public Kid() {}
 
-	public Kid(String name, String parent, Double startCheckBal) {
+	/**
+	 * Constructor so that all properties have usage.
+	 *
+	 * @param name The Kid's name
+	 * @param parent_id The Kid's parent's user ID
+	 * @param goal The Kid's goal
+	 * @param accounts Information about the Kid's accounts
+	 */
+	@SuppressWarnings("unused")
+	private Kid(String name,
+				String parent_id,
+				Map<String, Object> goal,
+				Map<String, Double> accounts) {
 		this.name = name;
-		this.parent_id = parent;
-
-		// Starting account balances
-		// Checking is money given by the parents. Think of as direct deposit target.
-		accounts.put("checking", startCheckBal);
-		// Savings is money put towards a goal.
-		accounts.put("savings", 0.0);
+		this.parent_id = parent_id;
+		this.goal = goal;
+		this.accounts = accounts;
 	}
 
+	/**
+	 * Getter for the name variable. Required by Firebase.
+	 *
+	 * @return This Kid's name
+	 */
+	public String getName(){
+		return name;
+	}
+
+	/**
+	 * Getter for the accounts variable. Required by Firebase.
+	 *
+	 * @return The accounts for this Kid
+	 */
+	@SuppressWarnings("unused")
+	public Map<String, Double> getAccounts() {
+		return this.accounts;
+	}
+
+	/**
+	 * Getter for the goal variable. Required by Firebase.
+	 *
+	 * @return The goal for this Kid
+	 */
+	@SuppressWarnings("unused")
+	public Map<String, ?> getGoal() {
+		return this.goal;
+	}
+
+	/**
+	 * Getter for the parent_id variable. Required by Firebase.
+	 *
+	 * @return The ID of this Kid's parent.
+	 */
+	@SuppressWarnings("unused")
+	public String getParent_id() {
+		return this.parent_id;
+	}
+
+	/**
+	 * Gets all of the Kids for one parent by the parent's ID. Returns nothing because the request
+	 * is asynchronous.
+	 *
+	 * @param db A connection to Firestore
+	 * @param parent_id The ID of the parent
+	 * @param listener The object to call back when the data arrives
+	 */
 	public static void getKidsByParent(FirebaseFirestore db, String parent_id, final FirebaseDataListener<List<Kid>> listener) {
 		CollectionReference cr = db.collection("kids");
 		Query query = cr.whereEqualTo("parent_id", parent_id);
@@ -66,39 +120,9 @@ public class Kid {
 		});
 	}
 
-	/*
-		Constructor to test appearance of tiles on main parent page
+	/**
+	 * @return The total value of all the Kid's accounts.
 	 */
-	public Kid(String name, Double check, Double save){
-		this.name = name;
-		accounts.put("checking", check);
-		accounts.put("savings", save);
-	}
-
-	// Required by Firebase
-	private Kid(String name, String parent_id, Map<String, Object> goal, Map<String, Double> accounts) {
-		this.name = name;
-		this.parent_id = parent_id;
-		this.goal = goal;
-		this.accounts = accounts;
-	}
-
-	public String getName(){
-		return name;
-	}
-
-	public Map<String, Double> getAccounts() {
-		return this.accounts;
-	}
-
-	public Map<String, ?> getGoal() {
-		return this.goal;
-	}
-
-	public String getParent_id() {
-		return this.parent_id;
-	}
-
 	public String getAccountsTotal(){
 		DecimalFormat df = new DecimalFormat("#.##");
 		Double sum = 0.0;
@@ -108,12 +132,13 @@ public class Kid {
 		return df.format(sum);
 	}
 
-	public void setGoal(String gName, Double amount) {
-		goal.put(gName, amount);
-	}
-
 	@Override
 	public String toString() {
-		return this.name + " of " + this.parent_id + " (Checking: " + this.accounts.get("checking") +  ", Savings: " + this.accounts.get("savings") + ", Goal: " + this.goal + ")";
+		String nameAndParent = this.name + " of " + this.parent_id;
+		String checkingValue = "Checking: " + this.accounts.get("checking");
+		String savingsValue = "Savings: " + this.accounts.get("savings");
+		String goalString = "Goal: " + this.goal.get("name");
+
+		return nameAndParent + " (" + checkingValue + ", " + savingsValue + ", " + goalString + ")";
 	}
 }
