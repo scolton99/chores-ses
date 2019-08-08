@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,11 +28,11 @@ import static c1.ses.chores.R.*;
  * @author Spencer Colton
  */
 public class MainParentActivity extends AppCompatActivity
-        implements FirebaseDataListener<List<Kid>>, ChildAdapter.KidClickedListener {
+        implements FirebaseDataListener<ArrayList<Kid>>, ChildAdapter.KidClickedListener {
     private TextView parentWelcome;
     private RecyclerView childList;
     private FirebaseAuth mAuth;
-    private List<Kid> children;
+    private ArrayList<Kid> children;
 
     private static final int LOGIN_RC = 237;
 
