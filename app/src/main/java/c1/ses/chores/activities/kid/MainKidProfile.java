@@ -1,4 +1,4 @@
-package c1.ses.chores;
+package c1.ses.chores.activities.kid;
 
 import android.os.Bundle;
 // import android.widget.ImageButton;

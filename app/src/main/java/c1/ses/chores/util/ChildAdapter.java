@@ -1,4 +1,4 @@
-package c1.ses.chores;
+package c1.ses.chores.util;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import c1.ses.chores.R;
+import c1.ses.chores.models.Kid;
 
 /**
  * Jennifer Carballo

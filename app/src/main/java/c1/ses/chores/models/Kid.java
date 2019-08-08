@@ -1,4 +1,4 @@
-package c1.ses.chores;
+package c1.ses.chores.models;
 
 import androidx.annotation.NonNull;
 
@@ -16,13 +16,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import c1.ses.chores.util.FirebaseDataListener;
+
 /**
  * Represents a single child under a parent's account.
  *
  * @author Megan St. Hilaire
  * @author Spencer Colton
  */
-class Kid {
+public class Kid {
 	private String name;
 	private String parent_id;
 	private Map<String, Object> goal = new HashMap<>();
@@ -100,7 +102,7 @@ class Kid {
 	 * @param parent_id The ID of the parent
 	 * @param listener The object to call back when the data arrives
 	 */
-	static void getKidsByParent(FirebaseFirestore db, String parent_id, final FirebaseDataListener<List<Kid>> listener) {
+	public static void getKidsByParent(FirebaseFirestore db, String parent_id, final FirebaseDataListener<List<Kid>> listener) {
 		CollectionReference cr = db.collection("kids");
 		Query query = cr.whereEqualTo("parent_id", parent_id);
 
@@ -123,7 +125,7 @@ class Kid {
 	/**
 	 * @return The total value of all the Kid's accounts.
 	 */
-	String getAccountsTotal(){
+	public String getAccountsTotal(){
 		DecimalFormat df = new DecimalFormat("#.##");
 		Double sum = 0.0;
 		for (Map.Entry<String, Double> curr : accounts.entrySet()) {
@@ -143,7 +145,7 @@ class Kid {
 	/**
 	 * @return The value of the Kid's savings account
 	 */
-	Double getSavings(){
+	public Double getSavings(){
 		return accounts.get("Savings");
 	}
 
