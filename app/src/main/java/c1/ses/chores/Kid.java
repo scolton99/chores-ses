@@ -4,6 +4,7 @@
 */
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Kid {
@@ -28,10 +29,19 @@ public class Kid {
 		accounts.put("savings", 0.0);
 	}
 
-	public setGoal(String gName, Double amount) {
-		goal.put(gName, amount);
+	public String getName(){
+		return name;
 	}
 
+	public Double getAccountsTotal(){
+		Double sum = 0.0;
+		for (Map.Entry<String, Double> curr : accounts.entrySet()) {
+			sum += curr.getValue();
+		}
+		return sum;
+	}
 
-
+	public void setGoal(String gName, Double amount) {
+		goal.put(gName, amount);
+	}
 }
