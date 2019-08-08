@@ -19,7 +19,7 @@ public class MainParentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layout.parents_main);
 
-        parentWelcome = findViewById(id.parentWelcome);
+        parentWelcome = findViewById(id.childName);
         parentSubtitle = findViewById(id.parentSubtitle);
         childList = findViewById(id.childList);
 
