@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -20,7 +20,7 @@
         tools:layout_editor_absoluteX="8dp">
 
         <ImageView
-            android:id="@+id/star1"
+            android:id="@+id/accountsButton1"
             android:layout_width="59dp"
             android:layout_height="65dp"
             android:layout_marginStart="16dp"
@@ -35,6 +35,21 @@
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/FirebaseUI.Button.AccountChooser.PhoneButton"
+        android:layout_width="276dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/checking_button_text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/childTile1"
+        app:layout_constraintStart_toStartOf="@+id/childTile1"
+        app:layout_constraintTop_toTopOf="@+id/childTile1" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/childTile2"
@@ -52,8 +67,19 @@
         app:layout_constraintVertical_bias="0.299"
         tools:layout_editor_absoluteX="8dp">
 
+        <Button
+            android:id="@+id/button"
+            style="@style/FirebaseUI.Button.AccountChooser.PhoneButton"
+            android:layout_width="267dp"
+            android:layout_height="54dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/checking_button_text"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="212dp" />
+
         <ImageView
-            android:id="@+id/star2"
+            android:id="@+id/accountsButton2"
             android:layout_width="59dp"
             android:layout_height="65dp"
             android:layout_marginStart="16dp"
@@ -69,10 +95,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/parentWelcome"
@@ -105,23 +127,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/parent_avatar_desc"/>
-
-    <Button
-        android:id="@+id/button2"
-        style="@style/FirebaseUI.Button.AccountChooser.PhoneButton"
-        android:layout_width="276dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginLeft="90dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/checking_button_text"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/childTile1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/childTile1" />
-
-
-
+        android:contentDescription="@string/parent_avatar_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
