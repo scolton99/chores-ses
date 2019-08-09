@@ -3,7 +3,6 @@ package c1.ses.chores.activities.parent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +19,7 @@ import java.util.Collections;
 import java.util.List;
 
 import c1.ses.chores.R;
+import c1.ses.chores.activities.kid.MainKidActivity;
 import c1.ses.chores.util.ChildAdapter;
 import c1.ses.chores.util.FirebaseDataListener;
 import c1.ses.chores.models.Kid;
@@ -128,11 +128,11 @@ public class MainParentActivity extends AppCompatActivity
     public void onKidClicked(int pos) {
         // Toast.makeText(MainParentActivity.this, "Login Success!", Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(MainParentActivity.this, MainKidProfile.class);
+        Intent intent = new Intent(MainParentActivity.this, MainKidActivity.class);
 
         // intent.putExtra("name", children.get(pos).getName());
         // intent.putExtra("checking", children.get(pos).getChecking());
-        intent.putExtra("savings", children.get(pos).getSavings());
+        intent.putExtra("kid_id", children.get(pos).getId());
 
         startActivity(intent);
     }

@@ -28,6 +28,7 @@ import c1.ses.chores.util.FirebaseDataListener;
  * @author Spencer Colton
  */
 public class Kid implements Serializable {
+	private String id;
 	private String name;
 	private String parent_id;
 	private Map<String, Object> goal = new HashMap<>();
@@ -113,6 +114,14 @@ public class Kid implements Serializable {
 		return this.parent_id;
 	}
 
+	public String getId() {
+		return this.id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	/**
 	 * Gets all of the Kids for one parent by the parent's ID. Returns nothing because the request
 	 * is asynchronous.
@@ -132,7 +141,10 @@ public class Kid implements Serializable {
 
 				if (task.isSuccessful() && task.getResult() != null) {
 					for (QueryDocumentSnapshot qdr : task.getResult()) {
-						kids.add(qdr.toObject(Kid.class));
+						Kid kid = qdr.toObject(Kid.class);
+						kid.setId(qdr.getId());
+
+						kids.add(kid);
 					}
 				}
 
@@ -177,14 +189,14 @@ public class Kid implements Serializable {
 	 * @return The value of the Kid's checking account
 	 */
 	@SuppressWarnings("unused")
-	Double getChecking(){
+	Double checkingValue(){
 		return accounts.get("Checking");
 	}
 
 	/**
 	 * @return The value of the Kid's savings account
 	 */
-	public Double getSavings(){
+	public Double savingsValue(){
 		return accounts.get("Savings");
 	}
 

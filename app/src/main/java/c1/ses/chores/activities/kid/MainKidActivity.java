@@ -2,6 +2,7 @@ package c1.ses.chores.activities.kid;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -21,7 +22,7 @@ import c1.ses.chores.util.ChildTaskAdapter;
 import c1.ses.chores.util.FirebaseDataListener;
 
 public class MainKidActivity extends AppCompatActivity implements FirebaseDataListener<Kid> {
-    protected static final String KID_ID = "Az3cVbBbSDT52W4OGvZp";
+    protected String KID_ID = "Az3cVbBbSDT52W4OGvZp";
 
     private Kid kid;
 
@@ -46,6 +47,18 @@ public class MainKidActivity extends AppCompatActivity implements FirebaseDataLi
 
         this.kidTasks = findViewById(R.id.kidTasks);
         this.kidTasks.setLayoutManager(new LinearLayoutManager(this));
+
+        ImageView profile = findViewById(R.id.profileMain);
+
+        String id = getIntent().getStringExtra("kid_id");
+        if (id != null)
+            this.KID_ID = id;
+
+        if (this.KID_ID.equals("Az3cVbBbSDT52W4OGvZp")) {
+            profile.setImageResource(R.drawable.rich);
+        } else {
+            profile.setImageResource(R.drawable.img);
+        }
     }
 
     @Override

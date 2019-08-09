@@ -11,6 +11,10 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import c1.ses.chores.R;
 import c1.ses.chores.models.Kid;
@@ -46,19 +50,17 @@ public class NewKidActivity extends AppCompatActivity {
         okAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String inputtedName= nameTextBox.getText().toString().trim();
                 Double inputtedBalNum = Double.parseDouble(prevBalText.getText().toString().trim());
 
                 Kid newKid = new Kid(inputtedName, parentID, inputtedBalNum);
 
                 // ADD CHILD TO FIREBASE LIST
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("kids").add(newKid);
 
                 // Pass back to MainParentActivity
-                Intent backwardsIntent = new Intent(NewKidActivity.this, MainParentActivity.class);
-                backwardsIntent.putExtra("newKid", newKid);
-                startActivity(backwardsIntent);
-
+                finish();
             }
         });
 
