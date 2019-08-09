@@ -15,8 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 import c1.ses.chores.R;
 import c1.ses.chores.models.Kid;
@@ -48,7 +46,7 @@ public class MainKidActivity extends AppCompatActivity implements FirebaseDataLi
         this.checkingProgress = findViewById(R.id.checkingProgress);
         this.savingsProgress = findViewById(R.id.savingsProgress);
 
-        this.kidTasks = findViewById(R.id.kidTasks);
+        this.kidTasks = findViewById(R.id.tasks);
         this.kidTasks.setLayoutManager(new LinearLayoutManager(this));
 
         ImageView profile = findViewById(R.id.profileMain);
