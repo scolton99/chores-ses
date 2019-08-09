@@ -13,6 +13,7 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Collections;
@@ -71,12 +72,14 @@ public class MainParentActivity extends AppCompatActivity
 
         this.mAuth = FirebaseAuth.getInstance();
 
-        List<AuthUI.IdpConfig> providers = Collections.singletonList(new AuthUI.IdpConfig.EmailBuilder().build());
-        startActivityForResult(
-                AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .build(), LOGIN_RC);
+        if (this.mAuth.getCurrentUser() == null) {
+            List<AuthUI.IdpConfig> providers = Collections.singletonList(new AuthUI.IdpConfig.EmailBuilder().build());
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setAvailableProviders(providers)
+                            .build(), LOGIN_RC);
+        }
     }
 
     @Override
@@ -98,6 +101,8 @@ public class MainParentActivity extends AppCompatActivity
             return;
 
         Kid.getKidsByParent(db, currentUser.getUid(), this);
+
+        currentUser.updateProfile(new UserProfileChangeRequest.Builder().setDisplayName("Jen").build());
 
         String name = currentUser.getDisplayName();
         String title = getApplicationContext().getString(string.parent_title, name);
