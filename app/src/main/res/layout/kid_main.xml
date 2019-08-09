@@ -11,6 +11,7 @@
         android:layout_width="395dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#fffde7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileMain">
@@ -54,6 +55,7 @@
         android:layout_width="395dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#fffde7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkingView">
@@ -112,6 +114,8 @@
         android:layout_marginTop="24dp"
         android:text="@string/tasks"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savingsView" />
 
