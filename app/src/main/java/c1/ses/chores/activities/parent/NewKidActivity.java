@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import c1.ses.chores.R;
 import c1.ses.chores.models.Kid;
 
@@ -21,8 +23,8 @@ public class NewKidActivity extends AppCompatActivity {
 
     private EditText nameTextBox;
     private EditText prevBalText;
-    private Button okAdd;
-    private Button cancelAdd;
+    private FloatingActionButton okAdd;
+    private FloatingActionButton cancelAdd;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.auth.AuthUI;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -40,7 +41,7 @@ public class MainParentActivity extends AppCompatActivity
     private RecyclerView childList;
     private FirebaseAuth mAuth;
     private List<Kid> children;
-    private Button addKid;
+    private FloatingActionButton addKid;
 
     private static final int LOGIN_RC = 237;
 
