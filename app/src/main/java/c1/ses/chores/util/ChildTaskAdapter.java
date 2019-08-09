@@ -49,6 +49,7 @@ public class ChildTaskAdapter extends RecyclerView.Adapter<ChildTaskAdapter.View
                 tasks.remove(position);
 
                 ChildTaskAdapter.this.notifyItemRemoved(position);
+                ChildTaskAdapter.this.notifyItemRangeChanged(position, tasks.size());
             }
         });
     }
