@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DecimalFormat;
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import c1.ses.chores.R;
 import c1.ses.chores.models.Kid;
@@ -71,6 +74,13 @@ public class MainKidActivity extends AppCompatActivity implements FirebaseDataLi
         Task.getTasksByKid(db, KID_ID, new FirebaseDataListener<List<Task>>() {
             @Override
             public void onData(List<Task> tasks) {
+                for (Iterator<Task> i = tasks.iterator(); i.hasNext();) {
+                    Task t = i.next();
+
+                    if (t.isCompleted())
+                        i.remove();
+                }
+
                 MainKidActivity.this.kidTasks.setAdapter(new ChildTaskAdapter(tasks));
             }
         });
