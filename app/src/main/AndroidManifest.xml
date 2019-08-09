@@ -23,6 +23,8 @@
 
         <activity android:name=".activities.kid.MainKidActivity" />
 
+        <activity android:name=".activities.parent.NewKidActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
