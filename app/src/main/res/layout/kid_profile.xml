@@ -7,7 +7,7 @@
     android:background="#e3f2fd">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/childTile1"
+        android:id="@+id/childTitle"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="8dp"
@@ -46,9 +46,9 @@
         android:fontFamily="sans-serif-black"
         android:text="@string/checking_button_text"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/childTile1"
-        app:layout_constraintStart_toStartOf="@+id/childTile1"
-        app:layout_constraintTop_toTopOf="@+id/childTile1" />
+        app:layout_constraintBottom_toBottomOf="@+id/childTitle"
+        app:layout_constraintStart_toStartOf="@+id/childTitle"
+        app:layout_constraintTop_toTopOf="@+id/childTitle" />
 
 
     <androidx.cardview.widget.CardView
