@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainParentActivity">
+        <activity android:name=".activities.parent.MainParentActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainKidProfile" />
+        <activity android:name=".activities.kid.MainKidProfile" />
 
         <meta-data
             android:name="preloaded_fonts"

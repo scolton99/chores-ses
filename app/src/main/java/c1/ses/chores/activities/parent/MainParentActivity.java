@@ -1,4 +1,4 @@
-package c1.ses.chores;
+package c1.ses.chores.activities.parent;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import c1.ses.chores.R;
+import c1.ses.chores.activities.kid.MainKidProfile;
+import c1.ses.chores.util.ChildAdapter;
+import c1.ses.chores.util.FirebaseDataListener;
+import c1.ses.chores.models.Kid;
 
 import static c1.ses.chores.R.*;
 

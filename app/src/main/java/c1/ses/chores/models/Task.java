@@ -1,4 +1,4 @@
-package c1.ses.chores;
+package c1.ses.chores.models;
 
 import java.util.Date;
 
