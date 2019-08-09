@@ -10,6 +10,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +25,7 @@ import c1.ses.chores.util.FirebaseDataListener;
  * @author Megan St. Hilaire
  * @author Spencer Colton
  */
-public class Kid {
+public class Kid implements Serializable {
 	private String name;
 	private String parent_id;
 	private Map<String, Object> goal = new HashMap<>();
@@ -54,6 +55,22 @@ public class Kid {
 		this.goal = goal;
 		this.accounts = accounts;
 	}
+
+	/**
+	 * This constructor is used when a parent creates a new child.
+	 * @param name
+	 * @param parent_id
+	 * @param prevBal
+	 */
+	public Kid(String name,
+				String parent_id,
+				Double prevBal) {
+		this.name = name;
+		this.parent_id = parent_id;
+		this.accounts.put("checking", prevBal);
+		this.accounts.put("savings", 0.0);
+	}
+
 
 	/**
 	 * Getter for the name variable. Required by Firebase.

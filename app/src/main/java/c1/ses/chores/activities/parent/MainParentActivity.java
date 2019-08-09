@@ -2,6 +2,8 @@ package c1.ses.chores.activities.parent;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +40,7 @@ public class MainParentActivity extends AppCompatActivity
     private RecyclerView childList;
     private FirebaseAuth mAuth;
     private List<Kid> children;
+    private Button addKid;
 
     private static final int LOGIN_RC = 237;
 
@@ -48,6 +51,21 @@ public class MainParentActivity extends AppCompatActivity
 
         parentWelcome = findViewById(R.id.parentWelcome);
         childList = findViewById(R.id.childList);
+        addKid = findViewById(R.id.addKidButton);
+
+        // Button click "event handler"
+        addKid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Go to new activity for making a child
+                Intent nkIntent = new Intent(MainParentActivity.this, NewKidActivity.class);
+                // Send over parentID
+                nkIntent.putExtra("parentID", mAuth.getCurrentUser().getUid());
+                // Commence transition.
+                startActivity(nkIntent);
+
+            }
+        });
 
         childList.setLayoutManager(new LinearLayoutManager(this));
 
