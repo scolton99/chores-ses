@@ -1,6 +1,19 @@
 package c1.ses.chores.models;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import c1.ses.chores.util.FirebaseDataListener;
 
 /**
  * This file represents a single task assigned to a child by a parent.
@@ -104,6 +117,36 @@ class Task {
     @SuppressWarnings("unused")
     public Date getDueDate() {
         return dueDate;
+    }
+
+    /**
+     * Gets all of the Tasks for one Kid by the Kid's ID. Returns nothing because the request
+     * is asynchronous.
+     *
+     * @param db A connection to Firestore
+     * @param childId The ID of the Kid
+     * @param listener The object to call back when the data arrives
+     */
+    public static void getTasksByKid(FirebaseFirestore db,
+                                     String childId,
+                                     final FirebaseDataListener<List<Task>> listener) {
+        CollectionReference cr = db.collection("tasks");
+        Query query = cr.whereEqualTo("assignee_id", childId);
+
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull com.google.android.gms.tasks.Task<QuerySnapshot> task) {
+                List<Task> tasks = new ArrayList<>();
+
+                if (task.isSuccessful() && task.getResult() != null) {
+                    for (QueryDocumentSnapshot qdr : task.getResult()) {
+                        tasks.add(qdr.toObject(Task.class));
+                    }
+                }
+
+                listener.onData(tasks);
+            }
+        });
     }
 }
 
