@@ -17,7 +17,6 @@ import java.util.Collections;
 import java.util.List;
 
 import c1.ses.chores.R;
-import c1.ses.chores.activities.kid.MainKidProfile;
 import c1.ses.chores.util.ChildAdapter;
 import c1.ses.chores.util.FirebaseDataListener;
 import c1.ses.chores.models.Kid;

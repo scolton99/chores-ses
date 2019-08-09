@@ -8,10 +8,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import c1.ses.chores.util.FirebaseDataListener;
 
@@ -21,7 +24,8 @@ import c1.ses.chores.util.FirebaseDataListener;
  * @author Megan St. Hilaire
  * @author Spencer Colton
  */
-class Task {
+public class Task {
+    private String id;
     private String assignee_id;
     private String name;
     private String description;
@@ -58,6 +62,16 @@ class Task {
         this.completed = completed;
         this.value = value;
         this.dueDate = dueDate;
+    }
+
+    /**
+     * Getter for the ID variable. Required by Firebase.
+     *
+     * @return This Task's ID
+     */
+    @SuppressWarnings("unused")
+    public String getId() {
+        return id;
     }
 
     /**
@@ -105,7 +119,7 @@ class Task {
      * @return The reward for completing this Task
      */
     @SuppressWarnings("unused")
-    public Double getCompensation() {
+    public Double getValue() {
         return value;
     }
 
@@ -117,6 +131,10 @@ class Task {
     @SuppressWarnings("unused")
     public Date getDueDate() {
         return dueDate;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**
@@ -140,13 +158,26 @@ class Task {
 
                 if (task.isSuccessful() && task.getResult() != null) {
                     for (QueryDocumentSnapshot qdr : task.getResult()) {
-                        tasks.add(qdr.toObject(Task.class));
+                        Task t = qdr.toObject(Task.class);
+                        t.setId(qdr.getId());
+
+                        tasks.add(t);
                     }
                 }
 
                 listener.onData(tasks);
             }
         });
+    }
+
+    public void setComplete() {
+        this.completed = true;
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("completed", true);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("tasks").document(this.id).set(data, SetOptions.merge());
     }
 }
 

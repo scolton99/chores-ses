@@ -5,6 +5,8 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -118,6 +120,26 @@ public class Kid {
 				}
 
 				listener.onData(kids);
+			}
+		});
+	}
+
+	/**
+	 * Gets one Kid object from Firebase based on document ID. Returns nothing because the request
+	 * is asynchronous.
+	 *
+	 * @param db A connection to Firestore
+	 * @param childId The ID of the parent
+	 * @param listener The object to call back when the data arrives
+	 */
+	public static void getKidByID(FirebaseFirestore db, String childId, final FirebaseDataListener<Kid> listener) {
+		DocumentReference dr = db.collection("kids").document(childId);
+		dr.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+			@Override
+			public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+				if (task.isSuccessful() && task.getResult() != null) {
+					listener.onData(task.getResult().toObject(Kid.class));
+				}
 			}
 		});
 	}

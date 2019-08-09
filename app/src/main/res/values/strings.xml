@@ -6,4 +6,9 @@
     <string name="child_avatar_desc">Star</string>
     <string name="account_icon_desc">Star</string>
     <string name="checking_button_text">Account</string>
+    <string name="parent_button">Parent</string>
+    <string name="child_button">Child</string>
+    <string name="checking">Checking</string>
+    <string name="savings">Savings</string>
+    <string name="tasks">Tasks</string>
 </resources>
