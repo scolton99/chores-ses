@@ -60,6 +60,17 @@ public class NewKidActivity extends AppCompatActivity {
             }
         });
 
+        cancelAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Go back to MainParentActivity
+                Intent backwardsIntent = new Intent(NewKidActivity.this, MainParentActivity.class);
+                startActivity(backwardsIntent);
+
+            }
+        });
+
     }
 
     private TextWatcher textWatcher = new TextWatcher() {
