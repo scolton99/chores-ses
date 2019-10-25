@@ -10,13 +10,11 @@
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/transferFunds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tasks"
-        app:layout_constraintVertical_bias="0.19"
         app:srcCompat="@drawable/ic_add_black_24dp" />
 
     <TextView
@@ -37,24 +35,12 @@
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tasks"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/savingsView"
         app:srcCompat="@drawable/ic_add_black_24dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tasks"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/checkingView"
@@ -176,7 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Goals"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
@@ -188,11 +174,7 @@
         android:id="@+id/transferFunds"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:background="#FFFDE7"
         android:text="Transfer $ Between Accounts"
         app:layout_constraintEnd_toEndOf="parent"
@@ -211,15 +193,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tasks"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add_black_24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,6 +46,8 @@ public class ChildTaskAdapter extends RecyclerView.Adapter<ChildTaskAdapter.View
             public void onClick(View view) {
                 task.setComplete();
 
+
+
                 tasks.remove(position);
 
                 ChildTaskAdapter.this.notifyItemRemoved(position);

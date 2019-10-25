@@ -185,6 +185,10 @@ public class Kid implements Serializable {
 		return df.format(sum);
 	}
 
+	public void addCheckingBalance(double amount) {
+
+	}
+
 	/**
 	 * @return The value of the Kid's checking account
 	 */
